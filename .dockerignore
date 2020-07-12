@@ -1,6 +1,9 @@
 # comment
-*/temp*
-*/*/temp*
-temp?
-db.*
-Dockerfile*
+db.sqlite3
+Dockerfile
+Dockerfile.*
+.env
+.venv/
+.git/
+.gitattributes
+.cache/

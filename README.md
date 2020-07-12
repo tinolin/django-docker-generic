@@ -17,7 +17,7 @@
 Download the files [Dockerfile](https://raw.githubusercontent.com/tinolin/django-docker-generic/master/Dockerfile) and [.dockerignore](https://raw.githubusercontent.com/tinolin/django-docker-generic/master/.dockerignore); Run the `build` of the image with the Docker commands, inside of you django-proyect folder. Here are some examples:
 
 ```console
-# my-django-project-folder/ #: docker build -t my-image-name .
+# my-django-project-folder/ #: docker build --build-arg PROJECT_NAME=my-django-project-folder -t my-image-name .
 
 # my-django-project-folder/ #: docker run --rm -it -p 80:8000 -e PROJECT_NAME=my-django-project-folder my-image-name:latest
 
@@ -26,6 +26,14 @@ Download the files [Dockerfile](https://raw.githubusercontent.com/tinolin/django
 Then access from you web-browser to 0.0.0.0:80
 
 ## Changelog
+
+### 0.2
+
+* Modified the [Dockerfile](https://raw.githubusercontent.com/tinolin/django-docker-generic/master/Dockerfile).
+* * Add build argument to plan projet folder structure on build.
+* * Change order from commands to optimize builds after adding argument.
+* Modified the  [.dockerignore](https://raw.githubusercontent.com/tinolin/django-docker-generic/master/.dockerignore).
+* * Adjust ignore files and folder.  
 
 ### 0.1
 
@@ -38,7 +46,7 @@ Then access from you web-browser to 0.0.0.0:80
 
 - PROJECT_NAME: name of the Django-proyect to load project settings (mandatory).
 - HOST: net address to bind Gunicorn to serve the app (def 0.0.0.0).
-- PORT: network port to bind Gunicorn to serve the app (def 8000).
+- PORT: network port to bind Gunicorn to serve the app (def 80).
 - WORKERS: Gunicorn procesess for better performance(def 3). 
 - USER: django user to login (def admin).
 - PSWD: django pass to login (def admin).
